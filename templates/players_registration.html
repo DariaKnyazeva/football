@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load bootstrap %}
+
+{% block title %}Registration{% endblock %}
+
+{% block page_title %}Registration{% endblock %}
+
+{% block extra_head %}{{ form.media }}{% endblock %}
+
+{% block extra_js %}
+    $(function () {
+        $('#id_date_of_birth').datetimepicker({
+                viewMode: 'years',
+                format: 'MM/DD/YYYY'
+            });
+    });
+{% endblock %}
+
+{% block content %}
+        {% block lead %}{% endblock %}
+        {% if form.errors %}
+        <div class="alert alert-error">
+          <strong>Oops...</strong> There was a problem saving your updates.  Please see the errors below.
+        </div>
+        {% endif %}
+        
+        <div class="row">
+        <form method="POST" action="">
+           {% csrf_token %}
+           {{ form|bootstrap }}
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>  
+           
+        </div>
+
+{% endblock %}
