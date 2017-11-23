@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load bootstrap %}
+
+{% block title %}Login{% endblock %}
+
+{% block page_title %}Sign In{% endblock %}
+
+{% block content %}
+  
+  {% if form.errors %}
+        <div class="alert alert-error">
+          <strong>Oops...</strong> There was a problem saving your updates.  Please see the errors below.
+        </div>
+  {% endif %}
+        
+    <div class="row">
+    <form method="POST" action="">
+           {% csrf_token %}
+           {{ form|bootstrap }}
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Log In</button>
+            </div>
+    </form>  
+           
+    </div>
+{% endblock %}

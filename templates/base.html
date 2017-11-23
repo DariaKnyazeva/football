@@ -54,10 +54,10 @@
                           <li class="{% if '/users/{{user.id}}/edit/' in request.get_full_path %}active{% endif %}">  
                               <a  href="#"><i class="fa fa-male"></i> Profile</a>
                           </li>
-                          <li> <a href="#"><i class="fa fa-sign-out"></i> Sign out</a></li>                        
+                          <li> <a href="{% url 'logout'%}"><i class="fa fa-sign-out"></i> Sign out</a></li>                        
                     {% else %}                      
                         <li>
-                            <a href="#"><i class="fa fa-sign-in"></i> Sign In</a>
+                            <a href="{% url 'login'%}"><i class="fa fa-sign-in"></i> Sign In</a>
                         </li>
                    {% endif %}
               </ul>   

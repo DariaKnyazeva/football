@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrapform',
 
     'players.apps.PlayersConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = '/'
