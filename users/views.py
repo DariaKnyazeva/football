@@ -15,8 +15,7 @@ def signup_coach(request):
             user = form.save(commit=False)
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
-            user.user_role = User.UserRole.COACH
-            user.save()
+            user = User.objects.create_coach(username, password=raw_password)
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('/')

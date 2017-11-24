@@ -131,3 +131,6 @@ STATICFILES_DIRS = [
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_REDIRECT_URL = '/'
+
+# pagination
+RESULTS_PER_PAGE = 1
