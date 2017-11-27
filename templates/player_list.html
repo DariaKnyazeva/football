@@ -8,7 +8,7 @@
         <h1>All Players</h1>
         
         <div class="row">
-            <a href="" class="btn btn-success"><i class="fa fa-plus"></i> Add Player</a>   
+            <a href="{% url 'add_player' %}" class="btn btn-success"><i class="fa fa-plus"></i> Add Player</a>   
         </div>
         
         <br/>
@@ -22,7 +22,7 @@
                 {% for player in object_list %}
                     <tr>
                         <td>{{ player.last_name }}</td>
-                        <td><a class="btn btn-sm btn-primary" href=""><i class="fa fa-edit"></i> Edit</a></td>
+                        <td><a class="btn btn-sm btn-primary" href="{% url 'edit_player' player_id=player.id %}""><i class="fa fa-edit"></i> Edit</a></td>
                     </tr>
                 {% empty %}
                     <tr><td colspan="2">No players found.</td></tr>
