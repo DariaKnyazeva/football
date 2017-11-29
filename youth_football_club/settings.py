@@ -25,7 +25,7 @@ SECRET_KEY = '3)%(vnnm2&e2-*h$czf5bqn3+dc$&p%&^fak&0e45qgrqltuut'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://serene-journey-93960.herokuapp.com/',]
+ALLOWED_HOSTS = ['serene-journey-93960.herokuapp.com',]
 
 
 # Application definition
