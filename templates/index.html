@@ -9,5 +9,8 @@
 <ul>
 <li><a href="{% url "players_registration" %}">Players registration</a></li>
 <li><a href="{% url "signup_coach" %}">Coaches registration</a></li>
+{% if user.is_authenticated %}
+    <li><a href="{% url "player_list" %}">Player List</a></li>
+{% endif %}
 </ul>
 {% endblock %}
