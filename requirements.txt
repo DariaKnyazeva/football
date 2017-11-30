@@ -3,3 +3,5 @@ django-bootstrap-form
 model-mommy
 gunicorn
 whitenoise
+dj-database-url 
+psycopg2
