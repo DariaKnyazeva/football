@@ -26,7 +26,7 @@ SECRET_KEY = '3)%(vnnm2&e2-*h$czf5bqn3+dc$&p%&^fak&0e45qgrqltuut'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['serene-journey-93960.herokuapp.com',]
+ALLOWED_HOSTS = ['serene-journey-93960.herokuapp.com', '127.0.0.1', ]
 
 
 # Application definition
@@ -129,6 +129,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static/images"),
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -136,6 +137,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = 'login'
 
 # pagination
 RESULTS_PER_PAGE = 1
