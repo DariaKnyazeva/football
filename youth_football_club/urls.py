@@ -23,6 +23,7 @@ urlpatterns = [
     url('^', include('django.contrib.auth.urls')),
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^players/', include('players.urls')),
+    url(r'^teams/', include('teams.urls')),
     url(r'^users/', include('users.urls')),
     url(r'^admin/', admin.site.urls),
 ]

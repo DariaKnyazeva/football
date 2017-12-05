@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'bootstrapform',
 
     'players.apps.PlayersConfig',
+    'teams.apps.TeamsConfig',
     'users.apps.UsersConfig',
 ]
 

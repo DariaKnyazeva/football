@@ -1,5 +1,8 @@
 <ul class="nav navbar-nav">
    <li {% if '/players/list/' in path %}class="active"{% endif %}>
-       <a href="{% url 'player_list' %}"><i class="fa fa-dashboard"></i> Player List</a>
+       <a href="{% url 'player_list' %}"><i class="fa fa-home"></i> Player List</a>
+   </li>  
+   <li {% if '/teams/list/' in path %}class="active"{% endif %}>
+       <a href="{% url 'team_list' %}"><i class="fa fa-users"></i> Squad</a>
    </li>  
 </ul>
