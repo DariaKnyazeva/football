@@ -14,3 +14,9 @@ class Team(models.Model):
     country = models.CharField(max_length=255, default='United Kingdom')
     city = models.CharField(max_length=255, default='London')
     address = models.CharField(max_length=255, blank=True, default='')
+
+    players = models.ManyToManyField('players.Player', null=True, blank=True)
+    side_players = models.ManyToManyField('players.Player', null=True, blank=True, related_name='side_players')
+
+    def __str__(self):
+        return self.name

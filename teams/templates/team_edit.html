@@ -1,0 +1,50 @@
+{% extends "base/form_page.html" %}
+
+{% load partition %}
+
+{% block extra_form %}
+
+<h4>Players (16 in a team)</h4>
+<div class="row">
+    {% for row in players|columns:3 %}
+      <div class="col-sm-3">
+      <table>
+          {% for item in row %}
+              <tr><td>{{ item }}</td><td><a class="btn btn-sm btn-primary" href="#"><i class="fa fa-minus"></i> Remove</a></td></tr>
+          {% endfor %}
+      </table>
+      </div>
+    {% empty %}
+    <div class="col-sm-6">There are no players in the team</div>
+    {% endfor %}
+</div>
+<p>&nbsp;</p>
+{% if players.count < 16 %}
+<a class="btn btn-sm btn-primary" href="{% url 'add_team_players' team_id=form.instance.pk %}"><i class="fa fa-plus"></i> Add Player(s)</a>
+{% else %}
+<a class="btn btn-sm btn-primary disabled" href="#"><i class="fa fa-plus"></i> Add Player(s)</a>
+{% endif %}
+<p>&nbsp;</p>
+
+<h4>Side Players (11 in a team)</h4>
+<div class="row">
+    {% for row in side_players|columns:3 %}
+      <div class="col-sm-3">
+      <table>
+          {% for item in row %}
+              <tr><td>{{ item }}</td><td><a class="btn btn-sm btn-primary" href="#"><i class="fa fa-minus"></i> Remove</a></td></tr>
+          {% endfor %}
+      </table>
+      </div>
+    {% empty %}
+    <div class="col-sm-6">There are no side players in the team</div>
+    {% endfor %}
+</div>
+<p>&nbsp;</p>
+{% if side_players.count < 11 %}
+<a class="btn btn-sm btn-primary" href="#"><i class="fa fa-plus"></i> Add Side Player(s)</a>
+{% else %}
+<a class="btn btn-sm btn-primary disabled" href="#"><i class="fa fa-plus"></i> Add Side Player(s)</a>
+{% endif %}
+<p>&nbsp;</p>
+{% endblock %}
