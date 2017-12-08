@@ -1,5 +1,9 @@
 {% extends "base/form_page.html" %}
 
 {% block extra_form %}
-<p>You can add no more than {{ allowed_count }} players to fill all 16 positions.</p>
+<p>You can add no more than {{ allowed_count }} players to fill all 16 positions. Please note that for <b>{{ team.name }}</b> team only {% ifequal team.gender 'M' %}<b>Male</b>{% else %}<b>Female</b>{% endifequal %} players of <b>{{ team.age }}</b> age can be added.</p>
+{% if form.fields.players.queryset.count %}
+{% else %}
+<p>No players matching the above criteria found.</p>
+{% endif %}
 {% endblock %}

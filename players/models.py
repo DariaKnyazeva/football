@@ -49,3 +49,9 @@ class Player(models.Model):
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
+
+    @property
+    def gender(self):
+        if self.salutation == Player.Salutation.MISTER:
+            return 'M'
+        return 'F'

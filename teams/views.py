@@ -90,5 +90,7 @@ class TeamAddPlayersView(CoachViewMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = "Add Team Players"
-        context['allowed_count'] = 16 - self.get_object().players.all().count()
+        team = self.get_object()
+        context['team'] = team
+        context['allowed_count'] = 16 - team.players.all().count()
         return context
