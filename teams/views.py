@@ -7,7 +7,7 @@ from django.views.generic.list import ListView
 
 from players.views import CoachViewMixin
 
-from .forms import TeamForm, AddPlayersForm
+from .forms import TeamForm, AddPlayersForm, AddSidePlayersForm
 from .models import Team
 
 
@@ -93,4 +93,22 @@ class TeamAddPlayersView(CoachViewMixin, UpdateView):
         team = self.get_object()
         context['team'] = team
         context['allowed_count'] = 16 - team.players.all().count()
+        return context
+
+
+class TeamAddSidePlayersView(CoachViewMixin, UpdateView):
+    model = Team
+    pk_url_kwarg = 'team_id'
+    form_class = AddSidePlayersForm
+    template_name = 'team_add_side_players.html'
+
+    def get_success_url(self):
+        return reverse('edit_team', kwargs={'team_id': self.get_object().id})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Add Team Side Players"
+        team = self.get_object()
+        context['team'] = team
+        context['allowed_count'] = 11 - team.side_players.all().count()
         return context

@@ -42,7 +42,7 @@
 </div>
 <p>&nbsp;</p>
 {% if side_players.count < 11 %}
-<a class="btn btn-sm btn-primary" href="#"><i class="fa fa-plus"></i> Add Side Player(s)</a>
+<a class="btn btn-sm btn-primary" href="{% url 'add_team_side_players' team_id=form.instance.pk %}"><i class="fa fa-plus"></i> Add Side Player(s)</a>
 {% else %}
 <a class="btn btn-sm btn-primary disabled" href="#"><i class="fa fa-plus"></i> Add Side Player(s)</a>
 {% endif %}

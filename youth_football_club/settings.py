@@ -142,7 +142,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 
 # pagination
-RESULTS_PER_PAGE = 1
+RESULTS_PER_PAGE = 5
 
 # ie if Heroku server
 if 'DATABASE_URL' in os.environ:
